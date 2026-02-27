@@ -1,2 +1,2 @@
-# owenwells.github.io
+# owendwells.github.io
 Engineering Portfolio
