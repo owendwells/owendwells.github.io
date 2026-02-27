@@ -91,82 +91,13 @@
     }
     .btn.primary:hover{ background: #11111a; }
 
-    /* Hero visual block */
-    .hero-card{
-      margin-top: 34px;
-      border-radius: var(--radius);
-      background:
-        radial-gradient(1200px 600px at 20% 0%, rgba(59,130,246,.18), transparent 55%),
-        radial-gradient(900px 520px at 85% 10%, rgba(56,189,248,.20), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.01));
-      border: 1px solid rgba(0,0,0,.06);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .hero-card-inner{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      padding: 26px;
-      align-items: stretch;
-    }
-    @media (max-width: 860px){
-      .hero-card-inner{ grid-template-columns: 1fr; }
-    }
-    .pill-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 12px;
-    }
-    @media (max-width: 520px){
-      .pill-grid{ grid-template-columns: 1fr; }
-    }
-    .pill{
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 18px;
-      padding: 14px 14px 12px;
-    }
-    .pill h4{
-      margin: 0 0 6px;
-      font-size: 14px;
-      letter-spacing: -.01em;
-    }
-    .pill p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-    .right-panel{
-      border-radius: 20px;
-      background: rgba(255,255,255,.62);
-      border: 1px solid rgba(0,0,0,.08);
-      padding: 16px;
-      display:flex; flex-direction: column; justify-content: space-between;
-      min-height: 100%;
-    }
-    .right-panel .label{
-      font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(11,11,15,.55);
-      margin-bottom: 10px;
-    }
-    .right-panel .big{
-      font-size: 18px; font-weight: 700; letter-spacing: -.01em;
-      margin: 0 0 8px;
-    }
-    .right-panel .small{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
-    }
+   
 
     /* Section */
-    section{ padding: 64px 0; border-top: 1px solid rgba(0,0,0,.06); }
+    section{ padding: 28px 0; border-top: 1px solid rgba(0,0,0,.06); }
     .section-title{
       font-size: 28px; letter-spacing: -.02em;
-      margin: 0 0 10px;
+      margin: 0 0 4px;
     }
     .section-sub{
       margin: 0 0 22px;
@@ -174,6 +105,7 @@
       max-width: 70ch;
       line-height: 1.55;
     }
+    #about{ padding-top: 14px; padding-bottom: 18px; }
 
     /* Project grid */
     .grid{
@@ -283,8 +215,6 @@
   <section id="projects">
     <div class="wrap">
       <h2 class="section-title">Projects</h2>
-      <p class="section-sub">
-        A few highlights. Each project page should show the problem, constraints, design decisions, and results.
       </p>
 
       <div class="grid">
