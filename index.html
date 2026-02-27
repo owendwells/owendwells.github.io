@@ -13,7 +13,6 @@
       --muted: rgba(11,11,15,.68);
       --hairline: rgba(11,11,15,.12);
       --link: #06c;
-      --card: rgba(0,0,0,.03);
       --shadow: 0 24px 60px rgba(0,0,0,.10);
       --radius: 28px;
       --max: 1120px;
@@ -24,6 +23,11 @@
     a{ color: var(--link); text-decoration: none; }
     a:hover{ text-decoration: underline; }
     .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+
+    /* Shared text column to align subhead + about + section intros */
+    .text-column{
+      max-width: 900px;   /* make wider or narrower here */
+    }
 
     /* Top nav (minimal, Apple-like) */
     .nav{
@@ -49,7 +53,7 @@
 
     /* Hero */
     .hero{
-      padding: 86px 0 56px;
+      padding: 86px 0 34px; /* reduced bottom space */
     }
     .kicker{
       font-size: 14px; letter-spacing: .16em; text-transform: uppercase;
@@ -66,12 +70,11 @@
       font-size: clamp(16px, 1.6vw, 19px);
       line-height: 1.45;
       color: var(--muted);
-      max-width: 62ch;
-      margin: 0 0 22px;
+      margin: 0 0 18px;
     }
     .cta-row{
       display:flex; gap:14px; flex-wrap: wrap; align-items:center;
-      margin-top: 18px;
+      margin-top: 12px;
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -91,21 +94,18 @@
     }
     .btn.primary:hover{ background: #11111a; }
 
-   
-
-    /* Section */
+    /* Sections */
     section{ padding: 28px 0; border-top: 1px solid rgba(0,0,0,.06); }
     .section-title{
       font-size: 28px; letter-spacing: -.02em;
       margin: 0 0 4px;
     }
     .section-sub{
-  margin: 0 0 22px;
-  color: var(--muted);
-  max-width: 900px;
-  font-size: clamp(16px, 1.6vw, 19px);
-  line-height: 1.6;
-}
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: clamp(18px, 1.6vw, 20px); /* About a bit bigger */
+      line-height: 1.6;
+    }
     #about{ padding-top: 14px; padding-bottom: 18px; }
 
     /* Project grid */
@@ -140,9 +140,7 @@
     .card-body{ padding: 16px; }
     .card h3{ margin: 0 0 8px; font-size: 16px; letter-spacing: -.01em; }
     .card p{ margin: 0 0 12px; color: var(--muted); font-size: 13px; line-height: 1.45; }
-    .meta{
-      display:flex; gap:8px; flex-wrap: wrap;
-    }
+    .meta{ display:flex; gap:8px; flex-wrap: wrap; }
     .tag{
       font-size: 12px;
       padding: 6px 10px;
@@ -187,39 +185,36 @@
     <header class="hero">
       <p class="kicker">Mechanical Engineering • Robotics • Manufacturing</p>
       <h1 class="headline">Engineering portfolios<br/>should feel simple.</h1>
-      <p class="subhead">
+
+      <p class="subhead text-column">
         I design and build electromechanical systems — from embedded prototypes to
         mechanical assemblies — with a focus on clear requirements, iteration, and testable results.
       </p>
-      
-  <section id="about">
-    <div class="wrap">
-      <h2 class="section-title">About</h2>
-      <p class="section-sub">
-        I’m a mechanical engineering student at UCLA focused on robotics, manufacturing, and embedded systems.
-        I like projects where mechanical design meets real constraints: power, packaging, reliability, and test.
-      </p>
-    </div>
-    
-  </section>
+
       <div class="cta-row">
         <a class="btn primary" href="#projects">View projects</a>
-        <!-- Replace links when ready -->
         <a class="btn" href="https://github.com/owenwells" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="#" id="resume">Resume (PDF)</a>
         <a class="btn" href="#contact">Contact</a>
       </div>
+    </header>
+  </main>
 
-     
-
+  <section id="about">
+    <div class="wrap">
+      <h2 class="section-title">About</h2>
+      <p class="section-sub text-column">
+        I’m a mechanical engineering student at UCLA focused on robotics, manufacturing, and embedded systems.
+        I like projects where mechanical design meets real constraints: power, packaging, reliability, and test.
+      </p>
+    </div>
+  </section>
 
   <section id="projects">
     <div class="wrap">
       <h2 class="section-title">Projects</h2>
-      </p>
 
       <div class="grid">
-        <!-- Card 1 -->
         <a class="card" href="#" aria-label="Robotic Arm Project">
           <div class="card-top"></div>
           <div class="card-body">
@@ -233,7 +228,6 @@
           </div>
         </a>
 
-        <!-- Card 2 -->
         <a class="card" href="#" aria-label="ESP32 Spy Watch">
           <div class="card-top"></div>
           <div class="card-body">
@@ -247,7 +241,6 @@
           </div>
         </a>
 
-        <!-- Card 3 -->
         <a class="card" href="#" aria-label="Water Level Controller">
           <div class="card-top"></div>
           <div class="card-body">
@@ -264,17 +257,13 @@
     </div>
   </section>
 
-
-
   <section id="contact">
     <div class="wrap">
       <h2 class="section-title">Contact</h2>
-      </p>
 
       <div class="cta-row">
-        <!-- Replace placeholders -->
-        <a class="btn primary" href="owendwells04@gmail.com">owendwells04@gmail.com</a>
-        <a class="btn" href="https://github.com/owendwells" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn primary" href="mailto:owendwells04@gmail.com">owendwells04@gmail.com</a>
+        <a class="btn" href="https://github.com/owenwells" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/owen-wells-05a299234/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
