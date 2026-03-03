@@ -129,14 +129,13 @@
       transform: translateY(-2px);
       box-shadow: 0 18px 44px rgba(0,0,0,.10);
     }
-    .card-top{
-      height: 110px;
-      background:
-        radial-gradient(700px 220px at 20% 0%, rgba(59,130,246,.20), transparent 55%),
-        radial-gradient(520px 220px at 90% 10%, rgba(56,189,248,.22), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.00));
-      border-bottom: 1px solid rgba(0,0,0,.06);
-    }
+    .card-img{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
     .card-body{ padding: 16px; }
     .card h3{ margin: 0 0 8px; font-size: 16px; letter-spacing: -.01em; }
     .card p{ margin: 0 0 12px; color: var(--muted); font-size: 13px; line-height: 1.45; }
@@ -242,7 +241,7 @@
         </a>
 
        <a class="card" href="projects/water-monitoring.html" aria-label="Water Monitoring Breadboard Project">
-          <div class="card-top"></div>
+          <img class="card-img" src="assets/images/waterbreadboard.png" alt="Water Monitoring Breadboard Prototype">
           <div class="card-body">
            <h3>Water Monitoring Breadboard Project</h3>
             <p>Water level sensing + automated control logic built and tested on a breadboard.</p>
