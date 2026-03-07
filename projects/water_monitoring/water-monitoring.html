@@ -155,33 +155,13 @@
           <h3>Temperature Indicator</h3>
           <ul class="list">
             <li>Three distinct Temperature levels indicated by LED (cool, room temp, hot)</li>
-            <li>Normalized room temperature with a thermistor incorportated in a wheatstone bridge</li>
-            <li>Created a relationship between voltage and temperature to set thresholds for lighting up each LED</li>
+            <li>Normalized room temperature with a thermistor incorportated in a wheatstone bridge.</li>
+            <li>Created a relationship between voltage and temperature to set voltage thresholds to be read through comparators for lighting up each LED</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>Design approach</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Sensing + conditioning</h3>
-          <ul class="list">
-            <li>Water-level sensing element (probe/float/etc.)</li>
-            <li>Signal conditioning to reduce noise</li>
-            <li>Threshold detection to drive outputs</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Control + outputs</h3>
-          <ul class="list">
-            <li>Indicator logic (LED steps / status)</li>
-            <li>Automated response (drain/valve trigger)</li>
-            <li>Fail-safe behavior (default safe state)</li>
-          </ul>
-        </div>
-      </div>
 
      <div class="imgbox">
   <img src="circuitschematic.png" alt="Water monitoring circuit schematic">
@@ -192,23 +172,29 @@ Final circuit schematic
     </section>
 
     <section>
-      <h2>Results</h2>
-      <p class="muted">
-        Replace these bullets with your real metrics once you have them.
-      </p>
+      <h2>Testing/Results</h2>
       <ul class="list">
         <li>Achieved stable level detection at a repeatable threshold</li>
-        <li>Verified output response across multiple fill/drain cycles</li>
-        <li>Improved reliability by addressing wiring/contact noise during iteration</li>
+        <li>Verified a flow rate of 30.4 mL/s, requiring about 10 seconds of RC delay</li>
+        <li>Room Temperature Resistance = 11.38 kΩ.</li>
+        <li>Temperature levels measured to be (20, 40, 80)°C from the nominal voltages of (1.5, 1, 0.5) V respectively.</li>
       </ul>
     </section>
 
     <section>
       <h2>Challenges/Iterations</h2>
       <ul class="list">
-        <li>How power stability and noise show up immediately in real sensor systems</li>
-        <li>How to design for testability on a breadboard (debug-friendly layout)</li>
-        <li>How to iterate quickly: change one variable, re-test, document results</li>
+        <li>Power dissipates as exponentially with time in the RC delay. An extra 7 seconds of delay was added to account for this.</li>
+        <li>Could not reach a high enough voltage to power the LED's from the bridge, so the signal had to be amplified by 2 V/V.</li>
+        <li>Position of the drainage tube deviated flow rate by 10%. The pump needed to be clamped in place for consistent results.</li>
+      </ul>
+    </section>
+
+     <section>
+      <h2>Next Steps</h2>
+      <ul class="list">
+        <li>Create an empirical relationship for Temp vs. Voltage to allow for LED's to light up at a specific desired temperature.</li>
+        <li>Implement a 555 timer or logic gates to solve the current dissipation issue instead of the RC delay.</li>
       </ul>
     </section>
 
