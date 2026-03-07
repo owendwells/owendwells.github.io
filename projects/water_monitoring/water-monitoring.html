@@ -115,9 +115,6 @@
     <header>
       <p class="kicker">Project</p>
       <h1>Water Monitoring Breadboard Project</h1>
-      <p class="sub textcol">
-        A breadboard prototype that monitors water level and triggers a controlled response.
-        Focused on sensing reliability, signal conditioning, and simple, testable control logic.
       </p>
       <div class="cta-row">
         <a class="btn primary" href="/#projects">Back to projects</a>
@@ -127,30 +124,39 @@
     </header>
 
     <section>
-      <h2>Problem</h2>
+      <h2>Overview</h2>
       <p>
-        Build a low-cost system to detect water level and respond automatically (indication + control),
-        using breadboarded electronics and clear, measurable behavior.
+       Breadboard prototype that uses purely analog components to indicate water level and temperature with LED's. The circuit also self-regulates water
+        level with a pump that drains water to prevent spilling.
       </p>
     </section>
 
     <section>
-      <h2>Constraints</h2>
+      <h2>Circuit Components</h2>
       <div class="grid">
         <div class="card">
-          <h3>Hardware constraints</h3>
+          <h3>Water Level Indicator</h3>
           <ul class="list">
-            <li>Breadboard-friendly parts and wiring</li>
-            <li>Noise + unreliable contacts (had to design for this)</li>
-            <li>Stable power delivery for consistent readings</li>
+            <li>Float switches set at three distinct levels.</li>
+            <li>Each swtich has an LED conncected to indicate water level.</li>
+            <li>The float switch closest to the top will trigger the drainage component.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Engineering goals</h3>
+          <h3>Pump Drainage</h3>
           <ul class="list">
-            <li>Repeatable threshold detection</li>
-            <li>Clear output behavior (LEDs / actuation)</li>
-            <li>Simple debug + test procedure</li>
+             <li>Start draining water when it reaches the final indicated level until the next level<li>
+            <li>Use RC delay and a power transistor to delay pump shutoff and generate enough current.</li>
+            <li>Determine pump's flow rate to determine how long to run drainage.</li>
+          
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Temperature Indicator</h3>
+          <ul class="list">
+            <li>Three distinct Temperature levels indicated by LED (cool, room temp, hot)</li>
+            <li>Normalized room temperature with a thermistor incorportated in a wheatstone bridge</li>
+            <li>Created a relationship between voltage and temperature to set thresholds for lighting up each LED</li>
           </ul>
         </div>
       </div>
