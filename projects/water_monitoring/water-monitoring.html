@@ -71,14 +71,16 @@
     .list{ margin:0; padding-left:18px; color:var(--muted); line-height:1.65; }
     .muted{ color:var(--muted); }
 
-   .imgbox{
-  margin-top: 18px;
+   .img-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
 }
+
 .imgbox img{
   width: 100%;
-  max-width: 540px;     /* controls schematic size */
   height: auto;
-  display: block;
   border-radius: 18px;
   border: 1px solid rgba(0,0,0,.08);
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
@@ -88,6 +90,11 @@
   font-size: 14px;
   color: rgba(11,11,15,.6);
   margin-top: 8px;
+}
+    @media (max-width: 800px){
+  .img-grid{
+    grid-template-columns: 1fr;
+  }
 }
     .imgnote{ font-size:13px; color:rgba(11,11,15,.62); margin:0; }
 
