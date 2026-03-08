@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spy Watch Project | Owen Wells</title>
+  <meta name="description" content="ESP32-based spy watch project with electrical design, mechanical packaging, and website UI integration." />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0b0b0f;
+      --muted:rgba(11,11,15,.68);
+      --hairline:rgba(11,11,15,.12);
+      --link:#06c;
+      --shadow:0 18px 40px rgba(0,0,0,.10);
+      --radius:24px;
+      --max:1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    }
+
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 22px;
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:saturate(180%) blur(14px);
+      background:rgba(255,255,255,.72);
+      border-bottom:1px solid var(--hairline);
+    }
+
+    .nav-inner{
+      height:52px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, #7dd3fc, #2563eb);
+      box-shadow:0 0 0 3px rgba(37,99,235,.10);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:18px;
+      font-size:14px;
+    }
+
+    .nav-links a{
+      color:rgba(11,11,15,.78);
+    }
+
+    .nav-links a:hover{
+      color:rgba(11,11,15,1);
+      text-decoration:none;
+    }
+
+    .hero{
+      padding:72px 0 34px;
+    }
+
+    .kicker{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(11,11,15,.55);
+      margin:0 0 14px;
+    }
+
+    .headline{
+      font-size:clamp(32px, 5vw, 56px);
+      line-height:1.05;
+      letter-spacing:-.02em;
+      margin:0 0 14px;
+      max-width:900px;
+    }
+
+    .subhead{
+      font-size:clamp(16px, 1.6vw, 19px);
+      line-height:1.55;
+      color:var(--muted);
+      margin:0;
+      max-width:900px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:20px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      height:44px;
+      padding:0 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      border:1px solid var(--hairline);
+      background:rgba(0,0,0,.02);
+      color:var(--text);
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(0,0,0,.10);
+      text-decoration:none;
+      background:rgba(0,0,0,.03);
+    }
+
+    .btn.primary{
+      border:none;
+      background:#0b0b0f;
+      color:#fff;
+    }
+
+    .btn.primary:hover{
+      background:#11111a;
+    }
+
+    section{
+      padding:28px 0;
+      border-top:1px solid rgba(0,0,0,.06);
+    }
+
+    h2{
+      font-size:28px;
+      letter-spacing:-.02em;
+      margin:0 0 10px;
+    }
+
+    p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.65;
+      max-width:900px;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+      margin-top:12px;
+    }
+
+    .card{
+      border-radius:22px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      padding:18px;
+      overflow:hidden;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+
+    .list{
+      margin:0;
+      padding-left:22px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .imgbox img{
+      width:100%;
+      display:block;
+      border-radius:18px;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+
+    .imgnote{
+      font-size:14px;
+      color:rgba(11,11,15,.6);
+      margin-top:8px;
+      line-height:1.5;
+    }
+
+    .img-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      margin-top:18px;
+    }
+
+    .img-grid .imgbox img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+    }
+
+    footer{
+      padding:42px 0 60px;
+      color:rgba(11,11,15,.64);
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      border-top:1px solid rgba(0,0,0,.06);
+      padding-top:18px;
+    }
+
+    .tiny{
+      font-size:13px;
+    }
+
+    @media (max-width: 900px){
+      .two-col,
+      .img-grid{
+        grid-template-columns:1fr;
+      }
+
+      .img-grid .imgbox img{
+        height:auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Owen Wells</span>
+      </div>
+      <div class="nav-links">
+        <a href="../../#projects">Projects</a>
+        <a href="../../#about">About</a>
+        <a href="../../Owen_Wells_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="../../#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">Project</p>
+      <h1 class="headline">Spy Watch</h1>
+      <p class="subhead">
+        A wearable electromechanical system integrating embedded electronics, compact packaging, and a backend-connected user interface.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="../../#projects">Back to projects</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        The Spy Watch project was developed as a compact wearable device capable of sensing, processing, and transmitting information through an embedded electronics system. The project combined electrical design, mechanical packaging, and backend connectivity into a single prototype.
+      </p>
+      <p>
+        The goal was to create a functional watch-style device that could house electronics in a constrained form factor while maintaining reliable power delivery, component integration, and a usable interface.
+      </p>
+    </section>
+
+    <section>
+      <h2>Constraints</h2>
+      <ul class="list">
+        <li>Limited physical space for electronics and wiring inside a wearable form factor.</li>
+        <li>Need for stable power delivery to embedded components.</li>
+        <li>Mechanical packaging constraints while maintaining accessibility and assembly.</li>
+        <li>Balancing functionality with a compact and wearable design.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Electrical Design</h2>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Electrical Design</h3>
+          <ul class="list">
+            <li>Integrated embedded electronics into a compact wearable system architecture.</li>
+            <li>Designed regulated power delivery to support reliable operation of onboard components.</li>
+            <li>Managed component placement and wiring in a constrained layout.</li>
+            <li>Considered signal flow between sensing, processing, and output functions.</li>
+            <li>Built around system reliability and practical hardware integration.</li>
+          </ul>
+        </div>
+
+        <div class="imgbox">
+          <img src="electrical.png" alt="Spy Watch electrical design">
+          <p class="imgnote">
+            Electrical layout and embedded hardware integration for the Spy Watch prototype.
+          </p>
+        </div>
+      </div>
+
+      <div class="img-grid">
+        <div class="imgbox">
+          <img src="mechanical.png" alt="Spy Watch mechanical design">
+          <p class="imgnote">
+            Mechanical design showing the watch housing and packaging approach.
+          </p>
+        </div>
+
+        <div class="imgbox">
+          <img src="website-ui.png" alt="Spy Watch website user interface">
+          <p class="imgnote">
+            Website UI used for interaction with the Spy Watch system.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Challenges / Iterations</h2>
+      <ul class="list">
+        <li>Iterated on packaging and component placement to fit the design within the watch form factor.</li>
+        <li>Worked through power delivery and integration issues associated with compact embedded hardware.</li>
+        <li>Refined the balance between mechanical design constraints and electrical functionality.</li>
+        <li>Improved system organization through repeated prototyping and testing.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Next Steps</h2>
+      <ul class="list">
+        <li>Further miniaturize the design for a more refined wearable package.</li>
+        <li>Improve system robustness and long-term power management.</li>
+        <li>Expand software and backend functionality for better real-time interaction.</li>
+        <li>Refine the mechanical enclosure for better manufacturability and assembly.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div class="tiny">© <span id="year"></span> Owen Wells</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
