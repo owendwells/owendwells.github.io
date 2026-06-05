@@ -109,29 +109,43 @@
     }
 
     .hero-card{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
       min-height:420px;
       border-radius:0;
-      background:
-        url("assets/images/owen.png");
-      background-size:cover;
-      background-position:center right;
       overflow:hidden;
       box-shadow:none;
-      display:flex;
-      align-items:center;
-      padding:48px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
     }
 
     .hero-content{
-      max-width:610px;
-      background:rgba(255,255,255,.86);
-      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:48px;
+      background:#fff;
+    }
+
+    .hero-image{
+      width:100%;
+      height:100%;
+      min-height:420px;
+    }
+
+    .hero-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:0;
     }
 
     .kicker{
       display:inline-flex;
       align-items:center;
       gap:8px;
+      width:fit-content;
       margin:0 0 18px;
       padding:8px 14px;
       border-radius:999px;
@@ -425,14 +439,16 @@
       }
 
       .hero-card{
-        min-height:510px;
-        align-items:flex-start;
+        grid-template-columns:1fr;
+        min-height:auto;
+      }
+
+      .hero-content{
         padding:32px;
-        border-radius:0;
-        background:
-          url("assets/images/owen.png");
-        background-size:cover;
-        background-position:center bottom;
+      }
+
+      .hero-image{
+        min-height:320px;
       }
 
       .project-grid{
@@ -459,13 +475,12 @@
         padding:0 14px;
       }
 
-      .hero-card{
-        border-radius:0;
+      .hero-content{
         padding:24px;
       }
 
-      .hero-content{
-        padding:20px;
+      .hero-image{
+        min-height:280px;
       }
 
       .headline{
@@ -526,6 +541,10 @@
             <a class="btn" href="Owen_Wells_Resume.pdf" target="_blank" rel="noopener">Resume</a>
             <a class="btn" href="#contact">Contact</a>
           </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="assets/images/owen.png" alt="Owen Wells working on a mechanical assembly">
         </div>
       </div>
     </header>
