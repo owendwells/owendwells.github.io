@@ -9,7 +9,7 @@
   <style>
     :root{
       --bg: #ffffff;
-      --panel: #f4f4f4;
+      --panel: #ffffff;
       --text: #000000;
       --muted: rgba(0,0,0,.62);
       --hairline: rgba(0,0,0,.10);
@@ -109,18 +109,18 @@
     }
 
     .hero-card{
-      min-height:560px;
-      border-radius:36px;
+      min-height:420px;
+      border-radius:0;
       background:
         linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 44%, rgba(255,255,255,.20) 100%),
         url("assets/images/owen.png");
       background-size:cover;
       background-position:center right;
       overflow:hidden;
-      box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
+      box-shadow:none;
       display:flex;
       align-items:center;
-      padding:64px;
+      padding:48px;
     }
 
     .hero-content{
@@ -144,17 +144,17 @@
 
     .headline{
       margin:0;
-      font-size:clamp(42px, 6vw, 72px);
+      font-size:clamp(32px, 4.5vw, 54px);
       line-height:.98;
       letter-spacing:-.05em;
       font-weight:900;
     }
 
     .subhead{
-      margin:20px 0 0;
+      margin:18px 0 0;
       max-width:520px;
       color:rgba(0,0,0,.68);
-      font-size:clamp(17px, 1.6vw, 21px);
+      font-size:clamp(15px, 1.3vw, 17px);
       line-height:1.45;
       font-weight:500;
     }
@@ -222,7 +222,7 @@
 
     .section-title{
       margin:0;
-      font-size:clamp(32px, 4vw, 48px);
+      font-size:clamp(24px, 3vw, 36px);
       line-height:1.05;
       letter-spacing:-.045em;
       font-weight:900;
@@ -231,17 +231,17 @@
     .section-sub{
       margin:14px auto 0;
       color:var(--muted);
-      font-size:clamp(16px, 1.4vw, 18px);
-      line-height:1.6;
+      font-size:clamp(14px, 1.05vw, 15px);
+      line-height:1.55;
       font-weight:500;
     }
 
     /* About */
     .about-panel{
-      border-radius:32px;
-      background:#f7f7f7;
-      padding:34px;
-      box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
+      border-radius:0;
+      background:transparent;
+      padding:0;
+      box-shadow:none;
     }
 
     .about-panel p{
@@ -249,7 +249,7 @@
       margin:0 auto;
       text-align:center;
       color:rgba(0,0,0,.68);
-      font-size:clamp(17px, 1.55vw, 21px);
+      font-size:clamp(15px, 1.15vw, 17px);
       line-height:1.6;
       font-weight:500;
     }
@@ -268,11 +268,11 @@
 
     .project-card{
       position:relative;
-      min-height:480px;
-      border-radius:32px;
+      min-height:360px;
+      border-radius:0;
       overflow:hidden;
-      background:#f4f4f4;
-      box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
+      background:#ffffff;
+      box-shadow:none;
       transition:transform .18s ease, box-shadow .18s ease;
     }
 
@@ -283,7 +283,7 @@
 
     .project-card.large{
       grid-column:span 2;
-      min-height:560px;
+      min-height:420px;
     }
 
     .project-img{
@@ -299,41 +299,41 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.75) 33%, rgba(255,255,255,.05) 100%);
+      background:linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.72) 32%, rgba(255,255,255,.08) 100%);
       z-index:1;
     }
 
     .project-info{
       position:relative;
       z-index:2;
-      padding:34px;
+      padding:28px;
       text-align:center;
-      max-width:680px;
+      max-width:620px;
       margin:0 auto;
     }
 
     .project-info h3{
       margin:0;
-      font-size:clamp(26px, 3vw, 42px);
+      font-size:clamp(20px, 2.25vw, 32px);
       line-height:1.05;
       letter-spacing:-.04em;
       font-weight:900;
     }
 
     .project-info p{
-      margin:12px auto 0;
+      margin:10px auto 0;
       color:rgba(0,0,0,.66);
-      font-size:16px;
-      line-height:1.5;
+      font-size:14px;
+      line-height:1.45;
       font-weight:600;
-      max-width:560px;
+      max-width:500px;
     }
 
     .project-link{
       display:inline-flex;
-      margin-top:18px;
+      margin-top:16px;
       color:var(--blue-dark);
-      font-size:15px;
+      font-size:14px;
       font-weight:800;
     }
 
@@ -347,16 +347,16 @@
 
     /* Contact */
     .contact-panel{
-      border-radius:32px;
+      border-radius:0;
       background:#000;
       color:#fff;
-      padding:44px 34px;
+      padding:38px 30px;
       text-align:center;
     }
 
     .contact-panel h2{
       margin:0;
-      font-size:clamp(32px, 4vw, 48px);
+      font-size:clamp(24px, 3vw, 36px);
       line-height:1.05;
       letter-spacing:-.04em;
       font-weight:900;
@@ -366,7 +366,7 @@
       margin:12px auto 0;
       max-width:620px;
       color:rgba(255,255,255,.72);
-      font-size:17px;
+      font-size:15px;
       line-height:1.55;
       font-weight:500;
     }
@@ -424,9 +424,10 @@
       }
 
       .hero-card{
-        min-height:680px;
+        min-height:510px;
         align-items:flex-start;
-        padding:34px;
+        padding:32px;
+        border-radius:0;
         background:
           linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.84) 38%, rgba(255,255,255,.06) 100%),
           url("assets/images/owen.png");
@@ -444,7 +445,8 @@
 
       .project-card,
       .project-card.large{
-        min-height:460px;
+        min-height:345px;
+        border-radius:0;
       }
     }
 
@@ -454,22 +456,22 @@
       }
 
       .hero-card{
-        border-radius:26px;
-        padding:26px;
+        border-radius:0;
+        padding:24px;
       }
 
       .headline{
-        font-size:42px;
+        font-size:34px;
       }
 
       .project-info{
-        padding:26px;
+        padding:24px;
       }
 
       .project-card,
       .project-card.large{
-        min-height:420px;
-        border-radius:26px;
+        min-height:330px;
+        border-radius:0;
       }
     }
   </style>
