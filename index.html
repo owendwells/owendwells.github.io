@@ -112,7 +112,6 @@
       min-height:420px;
       border-radius:0;
       background:
-        linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 44%, rgba(255,255,255,.20) 100%),
         url("assets/images/owen.png");
       background-size:cover;
       background-position:center right;
@@ -125,6 +124,8 @@
 
     .hero-content{
       max-width:610px;
+      background:rgba(255,255,255,.86);
+      padding:24px;
     }
 
     .kicker{
@@ -268,12 +269,13 @@
 
     .project-card{
       position:relative;
-      min-height:360px;
+      min-height:auto;
       border-radius:0;
       overflow:hidden;
       background:#ffffff;
       box-shadow:none;
       transition:transform .18s ease, box-shadow .18s ease;
+      border:1px solid rgba(0,0,0,.08);
     }
 
     .project-card:hover{
@@ -282,39 +284,36 @@
     }
 
     .project-card.large{
-      grid-column:span 2;
-      min-height:420px;
+      grid-column:span 1;
+      min-height:auto;
     }
 
     .project-img{
-      position:absolute;
-      inset:0;
+      position:static;
       width:100%;
-      height:100%;
+      height:260px;
       object-fit:cover;
-      z-index:0;
+      display:block;
+      z-index:auto;
     }
 
     .project-card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.72) 32%, rgba(255,255,255,.08) 100%);
-      z-index:1;
+      display:none;
     }
 
     .project-info{
-      position:relative;
-      z-index:2;
-      padding:28px;
+      position:static;
+      z-index:auto;
+      padding:22px;
       text-align:center;
-      max-width:620px;
+      max-width:none;
       margin:0 auto;
+      background:#fff;
     }
 
     .project-info h3{
       margin:0;
-      font-size:clamp(20px, 2.25vw, 32px);
+      font-size:clamp(18px, 2vw, 26px);
       line-height:1.05;
       letter-spacing:-.04em;
       font-weight:900;
@@ -323,7 +322,7 @@
     .project-info p{
       margin:10px auto 0;
       color:rgba(0,0,0,.66);
-      font-size:14px;
+      font-size:13px;
       line-height:1.45;
       font-weight:600;
       max-width:500px;
@@ -331,9 +330,9 @@
 
     .project-link{
       display:inline-flex;
-      margin-top:16px;
+      margin-top:14px;
       color:var(--blue-dark);
-      font-size:14px;
+      font-size:13px;
       font-weight:800;
     }
 
@@ -348,33 +347,35 @@
     /* Contact */
     .contact-panel{
       border-radius:0;
-      background:#000;
-      color:#fff;
-      padding:38px 30px;
+      background:#fff;
+      color:#000;
+      padding:28px 30px;
       text-align:center;
+      border-top:1px solid rgba(0,0,0,.08);
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
 
     .contact-panel h2{
       margin:0;
-      font-size:clamp(24px, 3vw, 36px);
+      font-size:clamp(20px, 2.4vw, 28px);
       line-height:1.05;
-      letter-spacing:-.04em;
+      letter-spacing:-.035em;
       font-weight:900;
     }
 
     .contact-panel p{
-      margin:12px auto 0;
+      margin:10px auto 0;
       max-width:620px;
-      color:rgba(255,255,255,.72);
-      font-size:15px;
-      line-height:1.55;
+      color:rgba(0,0,0,.62);
+      font-size:14px;
+      line-height:1.5;
       font-weight:500;
     }
 
     .contact-panel .btn{
       background:#fff;
       color:#000;
-      border-color:#fff;
+      border-color:rgba(0,0,0,.16);
     }
 
     .contact-panel .btn.primary{
@@ -429,7 +430,6 @@
         padding:32px;
         border-radius:0;
         background:
-          linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.84) 38%, rgba(255,255,255,.06) 100%),
           url("assets/images/owen.png");
         background-size:cover;
         background-position:center bottom;
@@ -445,8 +445,12 @@
 
       .project-card,
       .project-card.large{
-        min-height:345px;
+        min-height:auto;
         border-radius:0;
+      }
+
+      .project-img{
+        height:240px;
       }
     }
 
@@ -460,6 +464,10 @@
         padding:24px;
       }
 
+      .hero-content{
+        padding:20px;
+      }
+
       .headline{
         font-size:34px;
       }
@@ -470,8 +478,12 @@
 
       .project-card,
       .project-card.large{
-        min-height:330px;
+        min-height:auto;
         border-radius:0;
+      }
+
+      .project-img{
+        height:220px;
       }
     }
   </style>
